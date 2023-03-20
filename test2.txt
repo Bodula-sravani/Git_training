@@ -1,0 +1,2 @@
+this is a test 2 file
+this line is newly added after staging the file
