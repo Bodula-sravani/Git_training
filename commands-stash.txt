@@ -1,0 +1,70 @@
+Star@5CG9410FJD MINGW64 /d/Stash Git
+$ git init
+Initialized empty Git repository in D:/Stash Git/.git/
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git add .
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git commit -m "initial commit"
+[master (root-commit) d40d4e1] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Hello.txt
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git add .
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash save "mapstore file added"
+Saved working directory and index state On master: mapstore file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git add .
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash save "record store file added"
+Saved working directory and index state On master: record store file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash list
+stash@{0}: On master: record store file added
+stash@{1}: On master: mapstore file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash apply
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   RecordStore.txt
+
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash list
+stash@{0}: On master: record store file added
+stash@{1}: On master: mapstore file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash apply stash@{1}
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Mapstore.txt
+        new file:   RecordStore.txt
+
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash list
+stash@{0}: On master: record store file added
+stash@{1}: On master: mapstore file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash drop
+Dropped refs/stash@{0} (ec224c3b94d21af06ce83864af07f07345a15ebb)
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash list
+stash@{0}: On master: mapstore file added
+
+Star@5CG9410FJD MINGW64 /d/Stash Git (master)
+$ git stash drop stash@{0}
+Dropped stash@{0} (a8fc74fc6f4817a554245b24a9c7b5fd2793d969)
